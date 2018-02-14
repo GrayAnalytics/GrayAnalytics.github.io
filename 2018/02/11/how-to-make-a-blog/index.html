@@ -40,7 +40,7 @@
     
     <li><a href="/about/">About</a></li>
     
-    <li><a href="https://github.com/rstudio/blogdown">GitHub_TBA</a></li>
+    <li><a href="https://github.com/GrayAnalytics">GitHub</a></li>
     
     <li><a href="https://twitter.com/GrayAnalyst">Twitter</a></li>
     
@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
 
     <h1 class="article-title">How to Make a Blog</h1>
@@ -136,7 +136,8 @@ In the newer versions of RStudio, there&rsquo;s even a hugo blogdown option when
 <p>Here&rsquo;s how the viewer will look. Doesn&rsquo;t your default website look great?</p>
 
 <p><img src="../../../../images/how-to-make-a-blog/viewer.png" alt="What the page looks like" /><br />
-We Can also look at <a href="http://127.0.0.1:4321">http://127.0.0.1:4321</a></p>
+We Can also look at <a href="http://127.0.0.1:4321">http://127.0.0.1:4321</a><br />
+I prefer this method. It more accuratly shows what your webpage will look like vs the RStudio Viewer.</p>
 
 <h1 id="lets-take-a-look-around">Lets take a look around</h1>
 
@@ -233,6 +234,84 @@ I agree that the function call is faster, but use the GUI a few times until you&
 <p>I had some trouble creating an atlassian account.<br />
 You need to have a semi-updated version of Internet Explorer (SORRY)<br />
 <img src="../../../../images/how-to-make-a-blog/sorry.jpg" alt="Sorry" /></p>
+
+<p>Other than that, installing Sourcetree is rather straight forward.</p>
+
+<p>Now for the part where me put it on github.<br />
+For this part, i&rsquo;m using the instructions shown at <a href="https://pages.github.com/">Pages.GitHub</a></p>
+
+<h3 id="repository-creation">Repository Creation</h3>
+
+<p>Create a repository named &lsquo;username.github.io&rsquo;<br />
+<img src="../../../../images/how-to-make-a-blog/repository.png" alt="Repository" /></p>
+
+<p>For a simple website like this, and given how user-friendly blogdown tries to be, for the default theme, we just need to upload the public folder.<br />
+However, Sourcetree doesn&rsquo;t let you make a local git folder in a populated folder.
+So you&rsquo;ll&hellip;</p>
+
+<ol>
+<li>Move the contents of the /public/ folder to a temporary folder<br /></li>
+<li>Clone your github repo to /public/<br /></li>
+<li>Move the former contents of /public/ back into /public/<br /></li>
+<li>Commit, Push, yadda yadda yadda<br />
+<br /></li>
+</ol>
+
+<p>So, how to do that&hellip;</p>
+
+<h3 id="clone">Clone</h3>
+
+<p>Your github repository will tell you the repository location.<br />
+Or you could just take a wild guess&hellip;<br />
+<img src="../../../../images/how-to-make-a-blog/github_repo.png" alt="Github Repository" /></p>
+
+<p>Back in SourceTree, select &lsquo;Clone&rsquo;.<br />
+Fill out the <strong>Top</strong> address bar using the github repository address we discussed above.<br />
+The <strong>Second</strong> address bar should be set to the /public/ folder.<br />
+The <strong>Third</strong> text field is, I think, what SourceTree will call this repository project.</p>
+
+<p><img src="../../../../images/how-to-make-a-blog/clone.png" alt="Clone" /><br />
+(Yeah, I screwed up and didn&rsquo;t rename it to something meaningful&hellip;)</p>
+
+<p>You&rsquo;ll notice a .git file (possible hidden) will appear in /public/<br />
+Go ahead and copy the files back into /public/ (Number 3 above)</p>
+
+<p>The new version of SourceTree has this annoying pop-up window. Hopefully other git GUIs don&rsquo;t do this.
+<img src="../../../../images/how-to-make-a-blog/SourceTree_name.png" alt="weird sourcetree login" /></p>
+
+<p>Yihui recommends running a bit of code here to create a .nojekyll<br />
+    <code>file.create('.nojekyll')</code></p>
+
+<p>Go ahead and copy that into /public/</p>
+
+<p>Go ahead and select &lsquo;Stage All&rsquo;. (You&rsquo;ll want to load all of /public/ into the repository.)<br />
+<img src="../../../../images/how-to-make-a-blog/SourceTree_Stage_All.png" alt="SourceTree Stage All" /></p>
+
+<p>Put in a description, then &lsquo;Commit&rsquo; and &lsquo;Push&rsquo; (We&rsquo;ll discuss what that is in another post, if ever)</p>
+
+<p>You&rsquo;ll get a github login pop-up.<br />
+<img src="../../../../images/how-to-make-a-blog/git_login.png" alt="Github login" /><br />
+(you&rsquo;ll get a few e-mails from github now. &ldquo;Hey, someone just connected to your repository!&rdquo;)</p>
+
+<h2 id="complete">Complete!</h2>
+
+<p>And now we&rsquo;re done, with only a handful of &lsquo;magic spells&rsquo;!</p>
+
+<ul>
+<li>(magic spell = &lsquo;do this. I won&rsquo;t explain why&rsquo;)
+You have created a webpage, and if you go to <code>https://[username].github.io</code> you&rsquo;ll see your webpage!<br /></li>
+</ul>
+
+<p><img src="../../../../images/how-to-make-a-blog/final_webpage.png" alt="Final Webpage" /></p>
+
+<h4 id="notes-for-future-posts">Notes for future posts</h4>
+
+<p>Hopefully, in the future</p>
+
+<ul>
+<li>I&rsquo;ll have better formatting (still getting used to Markdown)</li>
+<li>posts will be shorter (this was a bit of a novel)</li>
+</ul>
 
     </div>
   </article>
