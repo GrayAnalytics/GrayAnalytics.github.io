@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gray Analytics</title>
+    <link>/</link>
+    <description>Recent content on Gray Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Make a Blog</title>
+      <link>/2018/02/11/how-to-make-a-blog/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/11/how-to-make-a-blog/</guid>
+      <description>FIRST POST!!! I made a blog, it makes sense that if I&amp;rsquo;m &amp;lsquo;Learning out Loud&amp;rsquo;, my first post should contain what I learned on &amp;lsquo;How to Make a Blog&amp;rsquo;. And based on how poorly this post looks, you know i&amp;rsquo;m not lying about the &amp;lsquo;First Post&amp;rsquo; comment.
+Educators My primary source for this is Yihui Xie&amp;rsquo;s website.
+Getting Started I&amp;rsquo;m using RStudio as my primary editor.
+So you&amp;rsquo;ll want to install</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sat, 13 Jan 2018 18:07:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Who am I I&amp;rsquo;m Dorian Gray (DG).
+I&amp;rsquo;m a data scientist who is still learning.
+About This Blog Based on David Robinson&amp;rsquo;s (@drob) post of Advice to aspiring data scientists: start a blog and John Mackintosh&amp;rsquo;s (@HighlandDataSci) post Time to Shine, I decided to start a blog. AND, inspired by Mara Averick&amp;rsquo;s (@dataandme) presentation, I&amp;rsquo;ve decided to make it a &amp;lsquo;Learning Out Loud&amp;rsquo; blog!
+Update Schedule This blog will be updated inconsistently, as I learn or &amp;ldquo;re-learn&amp;rdquo; new skills.</description>
+    </item>
+    
+  </channel>
+</rss>

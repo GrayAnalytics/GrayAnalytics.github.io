@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on Gray Analytics</title>
+    <link>/categories/general/</link>
+    <description>Recent content in General on Gray Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Make a Blog</title>
+      <link>/2018/02/11/how-to-make-a-blog/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/11/how-to-make-a-blog/</guid>
+      <description>FIRST POST!!! I made a blog, it makes sense that if I&amp;rsquo;m &amp;lsquo;Learning out Loud&amp;rsquo;, my first post should contain what I learned on &amp;lsquo;How to Make a Blog&amp;rsquo;. And based on how poorly this post looks, you know i&amp;rsquo;m not lying about the &amp;lsquo;First Post&amp;rsquo; comment.
+Educators My primary source for this is Yihui Xie&amp;rsquo;s website.
+Getting Started I&amp;rsquo;m using RStudio as my primary editor.
+So you&amp;rsquo;ll want to install</description>
+    </item>
+    
+  </channel>
+</rss>
