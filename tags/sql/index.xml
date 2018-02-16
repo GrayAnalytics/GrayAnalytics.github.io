@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Gray Analytics</title>
+    <link>/tags/sql/</link>
+    <description>Recent content in Sql on Gray Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setting up a Serverless Database on a Windows Machine</title>
+      <link>/2018/02/15/setting-up-a-serverless-database-on-a-windows-machine/</link>
+      <pubDate>Thu, 15 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/15/setting-up-a-serverless-database-on-a-windows-machine/</guid>
+      <description>This is a bit of an &amp;lsquo;infrastructure&amp;rsquo; post. Helping develop a working environment for future projects.
+I prefer storing data in a database vs txt files. But that&amp;rsquo;s me.
+Educators My primary source for this is SQLite&amp;rsquo;s quickstart page website.
+Tool I briefly considered three databases for this:
+ Oracle Lite
+ Looks like this requires you to setup a mini-server function on your PC. Sounds like a pain.</description>
+    </item>
+    
+  </channel>
+</rss>
