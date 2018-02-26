@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.32.4" />
+
+
+<title>Data Synthesis Part 1 - Gray Analytics</title>
+<meta property="og:title" content="Data Synthesis Part 1 - Gray Analytics">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/GrayAnalytics">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/GrayAnalyst">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Data Synthesis Part 1</h1>
+
+    
+    <span class="article-date">2018/02/25</span>
+    
+
+    <div class="article-content">
+      
+
+<p>This post is less of a <strong>how to</strong> and more of an algorithm idea.</p>
+
+<p>Inspired by random walk and monte carlo, I wanted to write an algorithm that could be used to synthetically upsample data that is a mixture of factoral and numeric data, where the columns are not independent.</p>
+
+<p>My original hope was to synthesize factoral combinations.</p>
+
+<p>But that doesn&rsquo;t work. Without outside knowledge of what factorial column combinations are allowed, I have to work with the combinations present in the input data.<br />
+Thus essentially sampling the data.</p>
+
+<p>Let&rsquo;s work through a few visuals to see what I mean.</p>
+
+<pre><code>##### Creating the dataset #####
+class_list1 &lt;- c('A', 'B')
+class_list2 &lt;- c('Z', 'X')
+class_list3 &lt;- c('I', 'K')
+
+dataset &lt;- data.frame(
+cbind(sample(class_list1, size = 20, replace = TRUE), 
+      sample(class_list2, size = 20, replace = TRUE),
+      sample(class_list3, size = 20, replace = TRUE),
+      runif(20,0,100),
+      runif(20,0,1)
+      )
+)
+</code></pre>
+
+<p><img src="../../../../images/synthetic_data_part1/dataset.png" alt="Example Dataset" /></p>
+
+<p>Ok, we have a random dataset with three columns of factoral data and two columns of numeric data.<br />
+Let&rsquo;s cut this down to just the factoral data, to make it easier to think through. We&rsquo;ll add a count column on there as well.</p>
+
+<pre><code>factor_list &lt;- names(Filter(is.factor, dataset))
+distribution_table &lt;- count(dataset, vars = factor_list)
+</code></pre>
+
+<p><img src="../../../../images/synthetic_data_part1/distribution_table.png" alt="Example Distribution" /></p>
+
+<p>From this, we can see the <strong>known</strong> allowed column combinations.<br />
+We&rsquo;ll have to assume that these are all of the allowed combinations. (Let&rsquo;s not randomly create a new &lsquo;C&rsquo; value for Var1, etc)</p>
+
+<h2 id="sampling">Sampling</h2>
+
+<p>This is the part that caused me trouble.<br />
+At first, I thought I could</p>
+
+<ol>
+<li>Randomly select a column and a row.<br /></li>
+
+<li><p>Then identify all possible values (and distribution) for that column given the values of the other columns in that row.</p>
+
+<p><img src="../../../../images/synthetic_data_part1/dataset_random_row_col.png" alt="Random Row and Column" /></p>
+
+<ul>
+<li>So we would say &ldquo;Given that Var2 is &lsquo;Z&rsquo; and Var3 is &lsquo;I&rsquo;, what are the possible values for Var 1? and What&rsquo;s their distributions?&rdquo;</li>
+<li>But how is that more insightful than a straight sampling of the raw dataset? We&rsquo;ll get to the same distributions. And it&rsquo;s not like one approach gives better insight into the rules governing the dependence between the columns.</li>
+</ul></li>
+</ol>
+
+<p>Given the above, we&rsquo;ll randomly sample a row from the dataset to be our starting point.</p>
+
+<pre><code>fake_row_num &lt;- sample(nrow(dataset), 1);
+fake_row &lt;- dataset[fake_row_num,];
+</code></pre>
+
+<p>This gives us a set combination of factoral values, as well as a starting point for our numeric values.</p>
+
+<ul>
+<li>We&rsquo;ll leave the factoral values alone (hey, we randomly selected them, fair and square.)<br /></li>
+<li>Now to walk our numerics!</li>
+</ul>
+
+<h2 id="numeric-columns">Numeric Columns</h2>
+
+<p>Given the factor combination, let&rsquo;s look at the numeric columns.</p>
+
+<pre><code>merge(dataset, fake_row[,factor_list], by = factor_list)
+</code></pre>
+
+<p><img src="../../../../images/synthetic_data_part1/filtered_dataset.png" alt="Filtered Dataset" /></p>
+
+<p>I need to work the math on this one, and see if there&rsquo;s a better solution. (Time to review Financial Monte Carlo models&hellip;)<br />
+The current solution I&rsquo;m using to to randomly select a value withing a standard deviation of our random row&rsquo;s starting value.  With the caveat that this randomly selected value <strong>cannot</strong> go outside of the known Min/Max of the numeric column when filtered to that factor combination.</p>
+
+<p>Example, in the above image, we would say the Var4 cannot go below 41.69 and cannot go above 65.76</p>
+
+<ul>
+<li>We want to maintain any relation between the factoral columns and the numeric values.</li>
+</ul>
+
+<pre><code>      repeat{
+        proposed_value &lt;- runif(1, min = fake_row[,synth_col] - std, max = fake_row[,synth_col] + std);
+        if (proposed_value &gt;= min(dataset_filtered[,synth_col]) &amp; 
+            proposed_value &lt;= max(dataset_filtered[,synth_col])) break
+      }
+</code></pre>
+
+<p>So, given the fact that &lsquo;Part 1&rsquo; is in the post title, we can safely assume that there&rsquo;s more work to do. But it&rsquo;s an acceptable start.</p>
+
+<p>The WIP code can be found in the <a href="https://github.com/GrayAnalytics/Data-Synthesis">repo</a>.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>I&rsquo;m sure this is already a solved problem. So I apologize if I&rsquo;m duplicating someone else&rsquo;s work.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

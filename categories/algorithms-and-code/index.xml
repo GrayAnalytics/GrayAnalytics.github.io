@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms and Code on Gray Analytics</title>
+    <link>/categories/algorithms-and-code/</link>
+    <description>Recent content in Algorithms and Code on Gray Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/algorithms-and-code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Synthesis Part 1</title>
+      <link>/2018/02/25/data-synthesis-part-1/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/25/data-synthesis-part-1/</guid>
+      <description>This post is less of a how to and more of an algorithm idea.
+Inspired by random walk and monte carlo, I wanted to write an algorithm that could be used to synthetically upsample data that is a mixture of factoral and numeric data, where the columns are not independent.
+My original hope was to synthesize factoral combinations.
+But that doesn&amp;rsquo;t work. Without outside knowledge of what factorial column combinations are allowed, I have to work with the combinations present in the input data.</description>
+    </item>
+    
+  </channel>
+</rss>

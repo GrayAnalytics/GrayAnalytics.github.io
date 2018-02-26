@@ -6,10 +6,22 @@
     <description>Recent content on Gray Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Synthesis Part 1</title>
+      <link>/2018/02/25/data-synthesis-part-1/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/25/data-synthesis-part-1/</guid>
+      <description>This post is less of a how to and more of an algorithm idea.
+Inspired by random walk and monte carlo, I wanted to write an algorithm that could be used to synthetically upsample data that is a mixture of factoral and numeric data, where the columns are not independent.
+My original hope was to synthesize factoral combinations.
+But that doesn&amp;rsquo;t work. Without outside knowledge of what factorial column combinations are allowed, I have to work with the combinations present in the input data.</description>
+    </item>
     
     <item>
       <title>Setting up a Serverless Database on a Windows Machine</title>
@@ -44,7 +56,7 @@ So you&amp;rsquo;ll want to install</description>
       
       <guid>/about/</guid>
       <description>Who am I I&amp;rsquo;m Dorian Gray (DG).
-I&amp;rsquo;m a data scientist who is still learning.
+I&amp;rsquo;m a data scientist/analyst who is still learning.
 About This Blog Based on David Robinson&amp;rsquo;s (@drob) post of Advice to aspiring data scientists: start a blog and John Mackintosh&amp;rsquo;s (@HighlandDataSci) post Time to Shine, I decided to start a blog. AND, inspired by Mara Averick&amp;rsquo;s (@dataandme) presentation, I&amp;rsquo;ve decided to make it a &amp;lsquo;Learning Out Loud&amp;rsquo; blog!
 Update Schedule This blog will be updated inconsistently, as I learn or &amp;ldquo;re-learn&amp;rdquo; new skills.</description>
     </item>
