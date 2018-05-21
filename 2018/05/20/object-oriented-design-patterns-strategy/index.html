@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.32.4" />
+
+
+<title>Object-Oriented Design Patterns: Strategy - Gray Analytics</title>
+<meta property="og:title" content="Object-Oriented Design Patterns: Strategy - Gray Analytics">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/GrayAnalytics">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/GrayAnalyst">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Object-Oriented Design Patterns: Strategy</h1>
+
+    
+    <span class="article-date">2018/05/20</span>
+    
+
+    <div class="article-content">
+      
+
+<h3 id="oo-designs">OO Designs</h3>
+
+<p>Was recently taking an Object Oriented Software development class. In the spirit of &lsquo;Learning Out Loud&rsquo; I figured the design patterns would be an interesting blog series.</p>
+
+<h2 id="educators">Educators</h2>
+
+<p>My primary source for this is a college course. Suggested reading includes&hellip;</p>
+
+<ul>
+<li>Object-Oriented Design and Patterns, 2nd edition, Horstmann, John Wiley &amp; Sons, 2005. ISBN: 978-0-471-74487-0</li>
+<li>Head First Design Patterns, Freeman, O&rsquo;Reilly Media, 2004. ISBN: 978-0596007126</li>
+</ul>
+
+<h2 id="strategy-design">Strategy Design</h2>
+
+<p>First up, we&rsquo;ll look into <strong>Strategy Design</strong></p>
+
+<p>This design is good for situations when you have an action that could be performed different ways.<br />
+Think of guards in a video game. They have the <em>Patrol</em> function. But different guards may patrol in different ways, or need to change how the patrol.</p>
+
+<ol>
+<li>Follow a set path through an area.</li>
+<li>Randomly patrols an area. Randomly turning when he walks into something<br /></li>
+<li>Intensely investigate an area.</li>
+<li>Chase
+<br /></li>
+</ol>
+
+<p>A guard could start off patrolling a set path, but what if he see&rsquo;s the game hero? We&rsquo;d need him to change to <em>Chase</em>. And then when the hero successfully hides, the guard should switch to <em>Intensely investigate</em>.</p>
+
+<p>With the Strategy Design we can change a guard&rsquo;s patrol strategy whenever we want.</p>
+
+<p>Let&rsquo;s look at the UML.</p>
+
+<p><img src="../../../../images/object-oriented-designs-strategy/Strategy_Design.png" alt="Strategy Design" /></p>
+
+<p>In our example, the <em>Client Class</em> is Guard.<br />
+They have a Strategy object, through which we perform the <em>Patrol()</em> function.</p>
+
+<p><em>Follow a Path</em>, <em>Randomly Patrol</em>, <em>Intensely Investigate</em>, and <em>Chase</em> would each be a separate ConcreteStrategy.</p>
+
+<p>Each ConcreteStrategy would have separate code for its <em>Patrol()</em> function.</p>
+
+<ul>
+<li><em>Random Patrol</em>&rsquo;s Patrol() function would randomly choose a direction to walk in.</li>
+<li><em>Chase</em>&rsquo;s Patrol() function would move the guard directly toward the hero.</li>
+<li>etc.</li>
+</ul>
+
+<p>So the guard&rsquo;s strategy object would start</p>
+
+<pre><code>Strategy strategy = new FollowAPath();
+</code></pre>
+
+<p>After they see the hero, we would then change strategy.</p>
+
+<pre><code> strategy = new Chase();
+</code></pre>
+
+<p>Now the guard can continue using</p>
+
+<pre><code> strategy.Patrol();
+</code></pre>
+
+<p>But the guard&rsquo;s actions have now changed.</p>
+
+<p>And that&rsquo;s the basics of the <em>Strategy Design Pattern</em></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

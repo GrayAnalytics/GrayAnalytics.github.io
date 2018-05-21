@@ -6,10 +6,21 @@
     <description>Recent content on Gray Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Object-Oriented Design Patterns: Strategy</title>
+      <link>/2018/05/20/object-oriented-design-patterns-strategy/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/20/object-oriented-design-patterns-strategy/</guid>
+      <description>OO Designs Was recently taking an Object Oriented Software development class. In the spirit of &amp;lsquo;Learning Out Loud&amp;rsquo; I figured the design patterns would be an interesting blog series.
+Educators My primary source for this is a college course. Suggested reading includes&amp;hellip;
+ Object-Oriented Design and Patterns, 2nd edition, Horstmann, John Wiley &amp;amp; Sons, 2005. ISBN: 978-0-471-74487-0 Head First Design Patterns, Freeman, O&amp;rsquo;Reilly Media, 2004. ISBN: 978-0596007126  Strategy Design First up, we&amp;rsquo;ll look into Strategy Design</description>
+    </item>
     
     <item>
       <title>Data Synthesis Part 1</title>
