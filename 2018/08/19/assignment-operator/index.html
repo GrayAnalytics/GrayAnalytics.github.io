@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.32.4" />
+
+
+<title>Assignment Operator: &lt;&lt;- - Gray Analytics</title>
+<meta property="og:title" content="Assignment Operator: &lt;&lt;- - Gray Analytics">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/GrayAnalytics">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/GrayAnalyst">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Assignment Operator: &lt;&lt;-</h1>
+
+    
+    <span class="article-date">2018/08/19</span>
+    
+
+    <div class="article-content">
+      
+
+<h3 id="the-assignment-operator">The &lt;&lt;- Assignment Operator ###</h3>
+
+<p>Today I learned about the &lt;&lt;- operator.</p>
+
+<p>It&rsquo;s similar to the <strong>&lt;&lt;</strong> operator. But how is it different?</p>
+
+<p>Let&rsquo;s take a look shall we?</p>
+
+<h2 id="educators">Educators ##</h2>
+
+<p>Largely, the R documentation, along with some experimentation.</p>
+
+<p>However, a co-working teaching an &lsquo;intro&rsquo; class brought its existance to my attention.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Let&rsquo;s begin with the R documentation.</p>
+
+<pre><code>help(&quot;assignOps&quot;)
+</code></pre>
+
+<p>Here we see:</p>
+
+<pre><code>The operators &lt;&lt;- and -&gt;&gt; are normally only used in functions, and cause a search to be made through parent environments for an existing definition of the variable being assigned...
+</code></pre>
+
+<p>Ok, so this is saying that using <strong>&lt;&lt;-</strong> inside a function will allow you to assign the value to a variable in the wider/global environment.</p>
+
+<p>&nbsp;</p>
+
+<p>But what does this mean in plain english?</p>
+
+<p>Let&rsquo;s find out?</p>
+
+<h2 id="example">Example</h2>
+
+<pre><code>ExampleFunction1 &lt;- function(input){
+  x &lt;- input
+  
+}
+
+ExampleFunction2 &lt;- function(input){
+  x &lt;&lt;- input
+}
+ExampleFunction1(2)
+print(x)
+
+Error in print(x) : object 'x' not found
+
+</code></pre>
+
+<p>Ok, so using the normal <strong>&lt;-</strong> operator within a function did not cause the variable &lsquo;x&rsquo; to appear in the global environment.<br />
+But we kind of expected that.</p>
+
+<p>Now, let&rsquo;s try it with the <strong>&lt;&lt;-</strong> operator.</p>
+
+<pre><code>ExampleFunction2(2)
+print(x)
+2
+</code></pre>
+
+<p>And now <strong>x</strong> exists.
+Seems pretty simple, right?</p>
+
+<p>Now let&rsquo;s talk about best practices with this operator.</p>
+
+<h2 id="when-to-use">When to use ##</h2>
+
+<p><strong>Never. Don&rsquo;t use this</strong></p>
+
+<p>Having functions that can create or overwrite global variables at any point within the function is just asking for errors.</p>
+
+<p>It&rsquo;s much easier, standardized, and safer to think of functions as a box where you put something(s) in and get other thing(s) out at the end.</p>
+
+<p>And if there&rsquo;s an error? Then you get nothing back, but nothing is broken.</p>
+
+<p>But with <strong>&lt;&lt;-</strong>, we have to contend with the idea that the function could run partway through, alter various variables, and then hit an exception and fail.</p>
+
+<p>So if we can&rsquo;t use <strong>&lt;&lt;-</strong>, then what do we do?</p>
+
+<h2 id="alternative">Alternative</h2>
+
+<p>Just return a list.</p>
+
+<p><code>return (list(input, input+1))</code></p>
+
+<p>Rather simple, huh?</p>
+
+<p>Or, if you&rsquo;re trying to do a for loop that writes to an ourside dataframe, why not include that dataframe as a parameter for your function, update it within your for loop, then return the dataframe.</p>
+
+<p>&nbsp;</p>
+
+<p>Hope that was helpful.<br />
+Go forth and write bugs no more.</p>
+
+<p>&nbsp;</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

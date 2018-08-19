@@ -6,10 +6,26 @@
     <description>Recent content on Gray Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Assignment Operator: &lt;&lt;-</title>
+      <link>/2018/08/19/assignment-operator/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/19/assignment-operator/</guid>
+      <description>The &amp;lt;&amp;lt;- Assignment Operator ### Today I learned about the &amp;lt;&amp;lt;- operator.
+It&amp;rsquo;s similar to the &amp;lt;&amp;lt; operator. But how is it different?
+Let&amp;rsquo;s take a look shall we?
+Educators ## Largely, the R documentation, along with some experimentation.
+However, a co-working teaching an &amp;lsquo;intro&amp;rsquo; class brought its existance to my attention.
+Documentation Let&amp;rsquo;s begin with the R documentation.
+help(&amp;quot;assignOps&amp;quot;)  Here we see:
+The operators &amp;lt;&amp;lt;- and -&amp;gt;&amp;gt; are normally only used in functions, and cause a search to be made through parent environments for an existing definition of the variable being assigned.</description>
+    </item>
     
     <item>
       <title>spark_apply: Column must have a unique name</title>
@@ -83,6 +99,15 @@ So you&amp;rsquo;ll want to install</description>
 I&amp;rsquo;m a data scientist/analyst who is still learning.
 About This Blog Based on David Robinson&amp;rsquo;s (@drob) post of Advice to aspiring data scientists: start a blog and John Mackintosh&amp;rsquo;s (@HighlandDataSci) post Time to Shine, I decided to start a blog. AND, inspired by Mara Averick&amp;rsquo;s (@dataandme) presentation, I&amp;rsquo;ve decided to make it a &amp;lsquo;Learning Out Loud&amp;rsquo; blog!
 Update Schedule This blog will be updated inconsistently, as I learn or &amp;ldquo;re-learn&amp;rdquo; new skills.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Assignment Operator: &amp;lt;&amp;lt;-code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
     </item>
     
   </channel>
