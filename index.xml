@@ -1,114 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Gray Analytics</title>
-    <link>/</link>
-    <description>Recent content on Gray Analytics</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Assignment Operator: &lt;&lt;-</title>
-      <link>/2018/08/19/assignment-operator/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/08/19/assignment-operator/</guid>
-      <description>The &amp;lt;&amp;lt;- Assignment Operator ### Today I learned about the &amp;lt;&amp;lt;- operator.
-It&amp;rsquo;s similar to the &amp;lt;&amp;lt; operator. But how is it different?
-Let&amp;rsquo;s take a look shall we?
-Educators ## Largely, the R documentation, along with some experimentation.
-However, a co-working teaching an &amp;lsquo;intro&amp;rsquo; class brought its existance to my attention.
-Documentation Let&amp;rsquo;s begin with the R documentation.
-help(&amp;quot;assignOps&amp;quot;)  Here we see:
-The operators &amp;lt;&amp;lt;- and -&amp;gt;&amp;gt; are normally only used in functions, and cause a search to be made through parent environments for an existing definition of the variable being assigned.</description>
-    </item>
-    
-    <item>
-      <title>spark_apply: Column must have a unique name</title>
-      <link>/2018/06/04/spark-apply-column-must-have-a-unique-name/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/06/04/spark-apply-column-must-have-a-unique-name/</guid>
-      <description>spark_apply():: Error: Column must have a unique name Did you get excited learning that spark_apply() will let you run your own custom functions in spark?
-And then, no matter what, you&amp;rsquo;re getting this joyous error?
-Column &#39;[column name]&#39; must have a unique name.  There&amp;rsquo;s a few possible causes:
- You&amp;rsquo;re using the group_by parameter, and the column name actually isn&amp;rsquo;t unique.
- The function you&amp;rsquo;re running through spark_apply() returns multiple rows/values per input.</description>
-    </item>
-    
-    <item>
-      <title>Object-Oriented Design Patterns: Strategy</title>
-      <link>/2018/05/20/object-oriented-design-patterns-strategy/</link>
-      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/05/20/object-oriented-design-patterns-strategy/</guid>
-      <description>OO Designs Was recently taking an Object Oriented Software development class. In the spirit of &amp;lsquo;Learning Out Loud&amp;rsquo; I figured the design patterns would be an interesting blog series.
-Educators My primary source for this is a college course. Suggested reading includes&amp;hellip;
- Object-Oriented Design and Patterns, 2nd edition, Horstmann, John Wiley &amp;amp; Sons, 2005. ISBN: 978-0-471-74487-0 Head First Design Patterns, Freeman, O&amp;rsquo;Reilly Media, 2004. ISBN: 978-0596007126  Strategy Design First up, we&amp;rsquo;ll look into Strategy Design</description>
-    </item>
-    
-    <item>
-      <title>Data Synthesis Part 1</title>
-      <link>/2018/02/25/data-synthesis-part-1/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/02/25/data-synthesis-part-1/</guid>
-      <description>This post is less of a how to and more of an algorithm idea.
-Inspired by random walk and monte carlo, I wanted to write an algorithm that could be used to synthetically upsample data that is a mixture of factoral and numeric data, where the columns are not independent.
-My original hope was to synthesize factoral combinations.
-But that doesn&amp;rsquo;t work. Without outside knowledge of what factorial column combinations are allowed, I have to work with the combinations present in the input data.</description>
-    </item>
-    
-    <item>
-      <title>Setting up a Serverless Database on a Windows Machine</title>
-      <link>/2018/02/15/setting-up-a-serverless-database-on-a-windows-machine/</link>
-      <pubDate>Thu, 15 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/02/15/setting-up-a-serverless-database-on-a-windows-machine/</guid>
-      <description>This is a bit of an &amp;lsquo;infrastructure&amp;rsquo; post. Helping develop a working environment for future projects.
-I prefer storing data in a database vs txt files. But that&amp;rsquo;s me.
-Educators My primary source for this is SQLite&amp;rsquo;s quickstart page website.
-Tool I briefly considered three databases for this:
- Oracle Lite
- Looks like this requires you to setup a mini-server function on your PC. Sounds like a pain.</description>
-    </item>
-    
-    <item>
-      <title>How to Make a Blog</title>
-      <link>/2018/02/11/how-to-make-a-blog/</link>
-      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/02/11/how-to-make-a-blog/</guid>
-      <description>FIRST POST!!! I made a blog, it makes sense that if I&amp;rsquo;m &amp;lsquo;Learning out Loud&amp;rsquo;, my first post should contain what I learned on &amp;lsquo;How to Make a Blog&amp;rsquo;. And based on how poorly this post looks, you know i&amp;rsquo;m not lying about the &amp;lsquo;First Post&amp;rsquo; comment.
-Educators My primary source for this is Yihui Xie&amp;rsquo;s website.
-Getting Started I&amp;rsquo;m using RStudio as my primary editor.
-So you&amp;rsquo;ll want to install</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sat, 13 Jan 2018 18:07:51 -0700</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Who am I I&amp;rsquo;m Dorian Gray (DG).
-I&amp;rsquo;m a data scientist/analyst who is still learning.
-About This Blog Based on David Robinson&amp;rsquo;s (@drob) post of Advice to aspiring data scientists: start a blog and John Mackintosh&amp;rsquo;s (@HighlandDataSci) post Time to Shine, I decided to start a blog. AND, inspired by Mara Averick&amp;rsquo;s (@dataandme) presentation, I&amp;rsquo;ve decided to make it a &amp;lsquo;Learning Out Loud&amp;rsquo; blog!
-Update Schedule This blog will be updated inconsistently, as I learn or &amp;ldquo;re-learn&amp;rdquo; new skills.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01/</guid>
-      <description>Assignment Operator: &amp;lt;&amp;lt;-code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
-    </item>
-    
-  </channel>
-</rss>
