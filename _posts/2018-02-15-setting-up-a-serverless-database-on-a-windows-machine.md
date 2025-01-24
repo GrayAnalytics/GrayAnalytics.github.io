@@ -24,6 +24,11 @@ I briefly considered three databases for this:
 Head over to [SQLite](https://sqlite.org/download.html)  
 
 You'll want a sqlite-tools..zip file.  
+![image](../images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/1_download_page.png)
+
+
+
+
 __enter pic here__  
 
 I wish there were a tools file for 64 bit. But at the time there's only one for 32 bit.  
