@@ -28,9 +28,6 @@ You'll want a sqlite-tools..zip file.
 
 
 
-
-__enter pic here__  
-
 I wish there were a tools file for 64 bit. But at the time there's only one for 32 bit.  
 I have no idea what the 64 bit DLL is. I tried opening it and it was gibberish  
 
