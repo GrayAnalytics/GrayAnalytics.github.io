@@ -26,7 +26,7 @@ Head over to [SQLite](https://sqlite.org/download.html)
 You'll want a sqlite-tools..zip file.  
 
 <div class="images">
-  <img src="assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/1_download_page.png">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/1_download_page.png">
   <div class="label">
     SQLite download page
   </div>
