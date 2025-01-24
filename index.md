@@ -1,5 +1,7 @@
-Here you can say lots of fun things about your site.
+Based on David Robinson's ([@drob](https://twitter.com/drob)) post [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/)   
+and John Mackintosh's ([@HighlandDataSci](https://twitter.com/HighlandDataSci)) post [Time to Shine](https://www.johnmackintosh.com/2017-12-30-time-to-shine/),  
+I decided to start a blog.  
 
-Maybe say a some things about yourself.
+This is also motivated by the Udacity DataScience Nanodegree
 
-Or maybe what you plan to blog about.
+
