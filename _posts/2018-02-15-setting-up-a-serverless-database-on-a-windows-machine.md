@@ -26,7 +26,7 @@ Head over to [SQLite](https://sqlite.org/download.html)
 You'll want a sqlite-tools..zip file.  
 
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/1_download_page.png">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/01_download_page.png">
   <div class="label">
     SQLite download page
   </div>
@@ -40,14 +40,26 @@ I have no idea what the 64 bit DLL is. I tried opening it and it was gibberish
 
 ## 2) Choose Your Directory  
 Open the zip file, and move its contents to wherever you want to house this database.  
-__enter pic here__  
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/02_insize_zip.png">
+  <div class="label">
+    Inside zip file
+  </div>
+</div>  
+
 * In this example, I'm storing it in /database_temp/sqlite32/  
 Go ahead and run sqlite3.exe  
 
 ## 3) Create Your Database  
 A Command Prompt/DOS window should open up and will run a little code.  
 You're now ready to create your database.  
-__enter pic here__  
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/03_create_DB.png">
+  <div class="label">
+    SQLite download page
+  </div>
+</div>  
+
 To create your database, type: ```.open [database name].db ```  
 * In theory, you don't need this tools exe.  
 You could open the command prompt, navigate to this folder, then type ```sqlite3```.  
@@ -55,11 +67,22 @@ But I'm not sure which file that runs off of, or if that only works because I've
   
 You should now see a file named __[database].db__ appear in the directory.  
 In my case, I named it __example1__  
-__enter pic here__   
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/04_database_created.png">
+  <div class="label">
+    example1.db created
+  </div>
+</div>     
 
 ## 4) Connect to the Database  
 You can now start typing SQL directly into the DOS window.  
-__enter pic here__   
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/05_dos_sql.png">
+  <div class="label">
+    Running sql queries in command prompt
+  </div>
+</div>     
+
 Isn't this fun???  
 How about we setup an ODBC connection, so we can use sane tools instead?  
 * ODBC is how many/most tools connect to a standard database.
@@ -80,14 +103,32 @@ In the start menu search for __ODBC Data Sources__ to open the appropriate manag
 Open the ODBC Manager and switch to the __System DSN__ tab  
 * You could do this in the __User DSN__ tab if you don't have admin access. But by habit I use __System DSN__  
 
-__enter pic here__   
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/06_odbc_manager.png">
+  <div class="label">
+    ODBC Manager
+  </div>
+</div>       
+
 Time to add a new connection...  
-__enter pic here__   
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/07_ODBC_Window.png">
+  <div class="label">
+    ODBC Manager
+  </div>
+</div>  
+
 Fill this out as appropriate for the database you just created.  
 * Data Source Name: The name you want to call this connection  
 * Database Name: The path and name of the database you just created.  
 
 You can now connect using your ODBC query tool of choice, including R or Python.  
+<div class="images">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/08_r_query.png">
+  <div class="label">
+    Running a query in R Studio
+  </div>
+</div>  
 
 ### Final Notes  
 * There's probably a smoother way to do this. And clearly there's a way to make a 64 bit version of the database.  
