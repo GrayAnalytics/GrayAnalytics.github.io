@@ -41,7 +41,7 @@ I have no idea what the 64 bit DLL is. I tried opening it and it was gibberish
 ## 2) Choose Your Directory  
 Open the zip file, and move its contents to wherever you want to house this database.  
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/02_insize_zip.png">
+  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/02_inside_zip.png">
   <div class="label">
     Inside zip file
   </div>
