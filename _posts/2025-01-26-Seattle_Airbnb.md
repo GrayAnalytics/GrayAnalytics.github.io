@@ -3,141 +3,155 @@
 <div class="images">
   <img src="/assets/images/2025-01-26-Seattle_Airbnb/01_dataset-cover.jpeg">
   <div class="label">
-    Seattle Image
+    Seattle Image from Kaggle page
   </div>
-</div>  
-
-Let's take a look at Airbnb listings data from 2016, to see what story it tells.  
+</div>    
+<br />  
+<br />  
+Let's take a look at Airbnb listings data from 2016, to see what story it tells.    
+Specifically, we'll be asking three questions of the data.
 
 ### Educators  
 
 This analysis was done as part of the [Data Scientist Nanodegree](https://www.udacity.com/enrollment/nd025). They provided links to the data, walkthroughs of scikit learn, etc.  
 
-### Tool  
-I briefly considered three databases for this:  
-1. Oracle Lite
-    * Looks like this requires you to setup a mini-server function on your PC. Sounds like a pain  
-2. Microsoft Access  
-    * This is my bias. When it was demo-ed to me 10ish years back. It felt like it was a toy. SQL query tool and database in one. (Decade old memories can be hazy. Sorry if that's inaccurate.)  
-3. SQLite  
-    * Only option that my google-fu skills found that fit the bill for what I'm looking for.  
-        * A real, queryable database
-        * easy to setup  
-        * no server  
-        * doesn't feel like a toy
+### Tool   
+This analysis was completely run in python.  
+(Specifically in a jupyter notebook)  
 
-## 1) Getting Started  
-Head over to [SQLite](https://sqlite.org/download.html)  
+### Dataset  
+Airbnb provided Seattle data for 2016.  
+* Listings: This is much like what you'd see on a real estate page. The neighborhood, bed count, etc.  
+* Reviews: Reviews for a listing, identified with a reviewer id.   
+* Calendar: Day by day listing of what days are available, and what the listed price is.  
 
-You'll want a sqlite-tools..zip file.  
+
+
+## Question 1) How does the listing's summary, space, and description length impact the annual income.  
+For this question, we're looking at, are more words better? Should you spend some extra time fleshing out your listing's descriptions?  
+<br />
+For this one we measured the length of the description, summary, and space fields, and added them together for each listing. 
+<br />  
+Next, we looked at that listing's calendar, identified the bookings as days when the listing wasn't available, and estimating the booking price as the price shown for neighboring available days.  
 
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/01_download_page.png">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/02_Description_Income.jpeg">
   <div class="label">
-    SQLite download page
+    Income vs Description Length
   </div>
-</div>
+</div>    
+<br />  
+<br />  
 
-
-
-
-I wish there were a tools file for 64 bit. But at the time there's only one for 32 bit.  
-I have no idea what the 64 bit DLL is. I tried opening it and it was gibberish  
-
-## 2) Choose Your Directory  
-Open the zip file, and move its contents to wherever you want to house this database.  
-<div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/02_inside_zip.png">
-  <div class="label">
-    Inside zip file
-  </div>
-</div>  
-
-* In this example, I'm storing it in /database_temp/sqlite32/  
-Go ahead and run sqlite3.exe  
-
-## 3) Create Your Database  
-A Command Prompt/DOS window should open up and will run a little code.  
-You're now ready to create your database.  
-<div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/03_create_DB.png">
-  <div class="label">
-    SQLite download page
-  </div>
-</div>  
-
-To create your database, type: ```.open [database name].db ```  
-* In theory, you don't need this tools exe.  
-You could open the command prompt, navigate to this folder, then type ```sqlite3```.  
-But I'm not sure which file that runs off of, or if that only works because I've already run this .exe  
+Looking at this graph, There's no real relationship. There's plenty of listings with short descriptions that are just as profitable as listings with very long descriptions.  
   
-You should now see a file named __[database].db__ appear in the directory.  
-In my case, I named it __example1__  
-<div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/04_database_created.png">
-  <div class="label">
-    example1.db created
-  </div>
-</div>     
+And mathematically, we're seeing a correlation of -0.03  
+Given that correlation is from -1 to 1. It is hard to get more in the middle than -0.03  
 
-## 4) Connect to the Database  
-You can now start typing SQL directly into the DOS window.  
-<div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/05_dos_sql.png">
-  <div class="label">
-    Running sql queries in command prompt
-  </div>
-</div>     
+### Conclusion 
+The description length does not have any significant impact on the annual income.
 
-Isn't this fun???  
-How about we setup an ODBC connection, so we can use sane tools instead?  
-* ODBC is how many/most tools connect to a standard database.
-* Basic methodology is:  
-    1. Download the driver for that type of database
-    2. Fill out connection information such as 'where is the database'  
 
-### Setting up the ODBC  
+## Question 2) Does local vs distant hosts impact the average review sentiment  
+For this question we are asking if whether the host lives in the same city as the property impacts the written review that renters leave.
 
-### 1) Download and install the sqllite odbc drivers.  
-I downloaded them from [ch-werner.de](http://www.ch-werner.de/sqliteodbc/)
+We're hypothesizing that renters want the host to live in the same city as the property. In my mind this is getting to the faceless management corporation vs local owner mentality.  
 
-### 2) Get to the ODBC Manager  
-You have two ODBC managers. One for 32 bit, one for 64 bit.  
-In the start menu search for __ODBC Data Sources__ to open the appropriate manager.  
+We started off by tagging each listing with a binary value for if the host is local or not. The host's location in the dataset is a free-form field, normally identifying their city, state, or country. But occasionally it's "We live upstairs" or "We live in the same home". Terms that mentally we can identify as local, but don't match the city/state/country format that other listings have.  
 
-### 3) Configure the ODBC Manager  
-Open the ODBC Manager and switch to the __System DSN__ tab  
-* You could do this in the __User DSN__ tab if you don't have admin access. But by habit I use __System DSN__  
+So we ran with the logic:  
+* if we see 'seattle', 'house', or 'home' then they're local.
+* if we see 'wa' or 'washington' and not 'DC' then we believe they're in the state, so "local"  
+* If we don't see any of the above words, then they're not local.
+
+A quick spot check showed this as sufficiently accurate logic.
+
+Next we used the TextBlob library to calculate the sentiment of each review. This is running some language processing logic to rate from -1 to 1 whether these are bad/angry reviews or good/happy reviews.
 
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/06_odbc_manager.png">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/03_Sentiment.PNG">
   <div class="label">
-    ODBC Manager
+    Review Sentiment
   </div>
-</div>       
+</div>    
+<br />  
+<br />  
 
-Time to add a new connection...  
+
+
+
+Now that we have our review sentiment and host locality, let's plot this as a histogram to see the distribution.  
+
+
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/07_ODBC_Window.png">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/04_Sentiment_Histogram.PNG">
   <div class="label">
-    ODBC Manager
+    Sentiment Histogram
   </div>
-</div>  
+</div>    
+<br />  
+<br />  
+  
 
-Fill this out as appropriate for the database you just created.  
-* Data Source Name: The name you want to call this connection  
-* Database Name: The path and name of the database you just created.  
+Obviously there's an imbalance between local hosts and non local hosts. But they appear to follow a largely similar distribution with reviews averaging vaguely positive sentiment.  
 
-You can now connect using your ODBC query tool of choice, including R or Python.  
+And when we calculate the correlation, we get 0.0007. So even MORE middle of the road than the description length vs annual income!
+
+So we have determined that no, host locality does not impact a listing's review comments.  
+
+## Question 3) What factors lead to a listing's rental rate  
+Finally we're going to look into what factors impact how many times a listing gets rented during the year.  
+
+From the available data we're going to look at:   
+* The length of the write up for transit options
+* The length of the write up about the host  
+* the number of listings the host owns
+* accommodates (The number of people the property accomodates)
+* bathroom count
+* bedroom count
+* bed count
+* price
+* minimum length of a booking
+* review scores for overall rating, cleanliness, communication, and location
+* host response time (converted into dummy variables)
+* whether the host has a profile picture
+* whether the listing is instantly bookable
+* how strict or lax the cancellation policy is (converted into dummy variables)
+<br />   
+
+This question actually required a lot less feature engineering than the previous questions (we're largely just using existing variables) but it did require a bit more data cleansing (dealing with Nulls, blanks, etc.)  
+The only feature engineering (other than converting categorical variables to dummy) was counting how many bookings each listing had during 2016.
+Since most of the numeric variables were "counting" variables (count of beds, etc) we did not have to worry too much about standardization, as we would have if we were including dimensions (sq feet), etc.
+
 <div class="images">
-  <img src="/assets/images/2018-02-15-setting-up-a-serverless-database-on-a-windows-machine/08_r_query.png">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/05_dummy_variable.PNG">
   <div class="label">
-    Running a query in R Studio
+    Example of converting 'Cancellation Policy' into dummy variables
   </div>
-</div>  
+</div>    
+<br />  
+<br />  
 
-### Final Notes  
-* There's probably a smoother way to do this. And clearly there's a way to make a 64 bit version of the database.  
-* But this is the level of knowledge I currently have, and it's enough for my minor needs
+
+For this question we used a linear regression model, as each variable's coeffecients (Betas) would give us a good indication of their importance.
+
+<div class="images">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/06_coeffecients.PNG">
+  <div class="label">
+    Top variables based on coefficients
+  </div>
+</div>    
+<br />  
+<br />  
+
+First we see the base value for the model, that makes sense.  
+But the next several most important variables are whether the host has a profile picture, how quickly the host responds to renters, and whether the listing is instantly bookable.
+Only after that we we start to see physical listing attributes like the number of beds.  
+This tells me that the hosts have a large impact on how much business the listing receives.
+
+
+### Conclusion 
+We looked at several business questions inspired by the data Airbnb provided. Our hypotheses were shown false twice. (Correlation was very close to zero)  
+However, we did find some actions hosts can do to potential improve the number of bookings they get over the course of a year.
 
 
