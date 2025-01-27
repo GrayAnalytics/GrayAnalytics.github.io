@@ -35,7 +35,7 @@ For this one we measured the length of the description, summary, and space field
 Next, we looked at that listing's calendar, identified the bookings as days when the listing wasn't available, and estimating the booking price as the price shown for neighboring available days.  
 
 <div class="images">
-  <img src="/assets/images/2025-01-26-Seattle_Airbnb/02_Description_Income.jpeg">
+  <img src="/assets/images/2025-01-26-Seattle_Airbnb/02_Description_Income.PNG">
   <div class="label">
     Income vs Description Length
   </div>
