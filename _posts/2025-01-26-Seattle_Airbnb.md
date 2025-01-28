@@ -1,4 +1,4 @@
-# Seattle Airbnb  
+# Gaining insights from Airbnb data, from a host's perspective  
 
 <div class="images">
   <img src="/assets/images/2025-01-26-Seattle_Airbnb/01_dataset-cover.jpeg">
