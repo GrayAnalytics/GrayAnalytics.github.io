@@ -144,9 +144,8 @@ For this question we used a linear regression model, as each variable's coeffeci
 <br />  
 <br />  
 
-First we see the base value for the model, that makes sense.  
-But the next several most important variables are whether the host has a profile picture, how quickly the host responds to renters, and whether the listing is instantly bookable.
-Only after that we we start to see physical listing attributes like the number of beds.  
+We see the first several important variables are whether the host has a profile picture, how quickly the host responds to renters, and whether the listing is instantly bookable.
+Only after that do we start to see physical listing attributes like the number of bedrooms.  
 This tells me that the hosts have a large impact on how much business the listing receives.
 
 
